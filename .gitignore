@@ -1,2 +1,4 @@
 searches/a.out
 a.out
+.venv
+__pycache__
