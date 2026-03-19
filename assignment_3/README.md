@@ -44,3 +44,15 @@ g++ ugv_dynamic.cpp -o dynamic
 
 **Understanding the Output:**
 Similar to the static version, the total number of execution steps will vary on every run based on where and when the dynamic obstacles "appear". If a dynamic wall completely traps the UGV mid-route, it will trigger a localized failure state.
+
+## 4. Question: Dynamic Navigation Strategy
+
+**Q: In a real world, obstacles can be dynamic and not known a priori. How do you make the UGV navigate and find the optimal path in a dynamic obstacles environment?**
+
+**A:** To navigate dynamic, unknown obstacles, the UGV must switch from planning just once to a continuous "sense and react" loop:
+
+1. **Local Sensors:** Equip the UGV with localized sensors (like LiDAR or cameras) to scan a short radius around itself as it moves.
+2. **Dual Mapping:** Maintain two maps: a "Global Map" (what it knew at the start) and a "Local Map" (which constantly updates with real-time sensor data).
+3. **Dynamic Pathfinding:** Replace standard A* with an algorithm built for changing environments:
+    * **Replanning A\*:** If the sensor detects a new obstacle blocking the path, the UGV stops and runs A* again from its current location to the goal. This is simpler to implement but heavier on the CPU.
+    * **D\* Lite:** An advanced algorithm that searches backward from the goal. When a new obstacle appears, it only updates the specific grid cells affected by the blockage. This is highly efficient.
