@@ -2,8 +2,13 @@
 
 Implementations for three AI search and navigation algorithms, progressing from standard graph search to dynamic grid-based pathfinding.
 
+Before running any of the codes, navigate into this folder.
+```sh
+cd assignment_3
+```
+
 ## 1. Dijkstra’s Algorithm (India Road Network)
-This program finds the shortest path and uniform-cost search between major cities in India. 
+This program finds the shortest path and uniform-cost search between major cities in India. The dataset is retrieved from a csv file.
 *(Note: The road distances dataset used was taken from Kaggle.)*
 
 **How to Run:**

@@ -1,3 +1,8 @@
+/*
+ * Q: In a real world, obstacles can be dynamic and not known a priori. How do you make the UGV navigate and find the optimal path in a dynamic obstacles environment?
+ * A: It is in the README.md file under the same folder. Check the answer there.
+ */
+
 #include <iostream>
 #include <vector>
 #include <queue>

@@ -1,5 +1,10 @@
 # Assignment 2
 
+Before running any of the codes, navigate into this folder.
+```sh
+cd assignment_2
+```
+
 ## Searches
 This directory contains basic C++ demonstrations of Breadth-First Search (BFS), Depth-First Search (DFS), and Dijkstra's algorithm. Additionally, it includes implementations that solve the classic Missionary and Cannibal river-crossing puzzle using both DFS and BFS to find a valid sequence of moves.
 
