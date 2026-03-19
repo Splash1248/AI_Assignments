@@ -1,0 +1,46 @@
+# Assignment 3
+
+Implementations for three AI search and navigation algorithms, progressing from standard graph search to dynamic grid-based pathfinding.
+
+## 1. Dijkstra’s Algorithm (India Road Network)
+This program finds the shortest path and uniform-cost search between major cities in India. 
+*(Note: The road distances dataset used was taken from Kaggle.)*
+
+**How to Run:**
+```sh
+g++ dijkstra.cpp -o dijkstra
+./dijkstra
+```
+
+**Example Outputs:**
+* **Example 1:** `Start: Delhi, Goal: Kanpur` -> Path: Delhi -> Agra -> Kanpur | Total Cost: 520 km
+* **Example 2:** `Start: Chennai, Goal: Mumbai` -> Path: Chennai -> Hyderabad -> Mumbai | Total Cost: 1334 km
+* **Example 3:** `Start: Hyderabad, Goal: Pune` -> Path: Hyderabad -> Pune | Total Cost: 562 km
+
+---
+
+## 2. Static UGV Navigation (A* Search)
+This simulates an Unmanned Ground Vehicle (UGV) finding the optimal path across a 70x70 km battlefield using the A* Search algorithm with an 8-way movement heuristic. The algorithm knows the locations of all obstacles in advance.
+
+**How to Run:**
+```sh
+g++ ugv_static.cpp -o static
+./static
+```
+
+**Understanding the Output:**
+Because the obstacles are generated randomly using a seed every time the program executes, **your output will change on every single run**. The Measures of Effectiveness (Path Cost, Nodes Expanded, and CPU Time) will fluctuate. On High-Density (45%) runs, the UGV may report "Failure" if completely walled off.
+
+---
+
+## 3. Dynamic UGV Navigation (Replanning A*)
+This upgrades the UGV to operate in a "Fog of War" environment. Instead of knowing the whole map, the UGV uses a 5x5 sensor range. If a dynamic, unmapped obstacle suddenly appears in its path, it pauses, updates its internal map, and recalculates a new route on the fly.
+
+**How to Run:**
+```sh
+g++ ugv_dynamic.cpp -o dynamic
+./dynamic
+```
+
+**Understanding the Output:**
+Similar to the static version, the total number of execution steps will vary on every run based on where and when the dynamic obstacles "appear". If a dynamic wall completely traps the UGV mid-route, it will trigger a localized failure state.
