@@ -1,4 +1,4 @@
-# Assignment 2
+# Assignment 4
 
 Python implementations of Constraint Satisfaction Problem (CSP) algorithms.
 
